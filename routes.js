@@ -60,7 +60,7 @@ module.exports = function (app) {
 						fs.readFile('terraform.tfstate', 'utf8', function(err, tfstate) {
 
 							try {
-								if (process.env.env != "localhost") {
+								if (process.env.env != "localhost" && process.env.env != "test") {
 									fs.unlinkSync('terraform.tfstate')
 								}
 								res.json(JSON.parse(tfstate))
