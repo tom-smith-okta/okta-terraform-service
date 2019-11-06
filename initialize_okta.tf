@@ -29,7 +29,7 @@ resource "okta_user" "carl_sagan" {
   group_memberships      = ["${okta_group.silver_subscribers.id}"]
 }
 
-resource "okta_user" "jodie.foster" {
+resource "okta_user" "jodie_foster" {
   first_name = "jodie"
   last_name  = "foster"
   email      = "jodie.foster@mailinator.com"
