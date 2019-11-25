@@ -11,9 +11,7 @@ module.exports = function (app) {
 
 
 	app.get('/', function(req, res, next) {
-
 		res.json({message: "NGINX is successfully proxying Node Express."})
-
 	})
 
 	app.post('/apply', function(req, res, next) {
@@ -67,7 +65,7 @@ module.exports = function (app) {
 						fs.readFile('terraform.tfstate', 'utf8', function(err, tfstate) {
 
 							try {
-								if (process.env.env != "localhost" && process.env.env != "test") {
+								if (process.env.MODE != "test") {
 									fs.unlinkSync('terraform.tfstate')
 								}
 								res.json(JSON.parse(tfstate))
