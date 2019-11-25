@@ -19,10 +19,10 @@ app.use(cors())
 
 ///////////////////////////////////////////////////
 
-require('./routes.js')(app);
+require('./routes.js')(app)
 
-var port = process.env.PORT || 3890;
+var port = process.env.PORT
 
 app.listen(port, function () {
-	console.log('App listening on port ' + port);
-});
+	console.log('App listening on port ' + port)
+})
