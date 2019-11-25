@@ -9,6 +9,13 @@ var request = require("request")
 
 module.exports = function (app) {
 
+
+	app.get('/', function(req, res, next) {
+
+		res.json({message: "NGINX is successfully proxying Node Express."})
+
+	})
+
 	app.post('/apply', function(req, res, next) {
 
 		console.dir(req.body)

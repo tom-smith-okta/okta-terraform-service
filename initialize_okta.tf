@@ -73,7 +73,7 @@ resource "okta_auth_server_policy_rule" "silver_access" {
   policy_id            = "${okta_auth_server_policy.solar_system_access.id}"
   status               = "ACTIVE"
   name                 = "silver access"
-  priority             = 2
+  priority             = 1
   group_whitelist      = ["${okta_group.silver_subscribers.id}"]
   grant_type_whitelist = ["authorization_code"]
   scope_whitelist      = ["openid", "${okta_auth_server_scope.silver.name}"]
@@ -84,7 +84,7 @@ resource "okta_auth_server_policy_rule" "gold_access" {
   policy_id            = "${okta_auth_server_policy.solar_system_access.id}"
   status               = "ACTIVE"
   name                 = "gold access"
-  priority             = 1
+  priority             = 2
   group_whitelist      = ["${okta_group.gold_subscribers.id}"]
   grant_type_whitelist = ["authorization_code"]
   scope_whitelist      = ["openid", "${okta_auth_server_scope.silver.name}", "${okta_auth_server_scope.gold.name}"]
