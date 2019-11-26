@@ -70,9 +70,15 @@ module.exports = function (app) {
 
 									var okta_tenant = req.body.okta_org_name + "." + req.body.okta_base_url
 
-									var new_path = 'success/' + okta_tenant + '/terraform.tfstate'
+									var dir = 'success/' + okta_tenant
 
-									fs.renameSync('terraform.tfstate', new_path)
+									if (!fs.existsSync(dir)){
+										fs.mkdirSync(dir)
+									}
+
+									// var new_path = 'success/' + okta_tenant + '/terraform.tfstate'
+
+									fs.renameSync('terraform.tfstate', dir + '/terraform.tfstate')
 
 								}
 								res.json(JSON.parse(tfstate))
