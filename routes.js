@@ -66,7 +66,14 @@ module.exports = function (app) {
 
 							try {
 								if (process.env.MODE != "test") {
-									fs.unlinkSync('terraform.tfstate')
+									// fs.unlinkSync('terraform.tfstate')
+
+									var okta_tenant = req.body.okta_org_name + "." + req.body.okta_base_url
+
+									var new_path = 'success/' + okta_tenant + '/' + terraform.tfstate
+
+									fs.renameSync('terraform.tfstate', new_path)
+
 								}
 								res.json(JSON.parse(tfstate))
 
